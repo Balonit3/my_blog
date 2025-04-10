@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+
+    {% if posts  %}
+        <ul>
+            {% for post in posts%}
+            <li>
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.content|trunchcatewords:30 }}</p>
+                <small>
+                    Категория: {{ post.category.name }} |
+                    Дата: {{ post.created_at|date:"d.m.Y H:i"}}
+                </small>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Пока нет ни одного поста.</p>
+    {% endif %}
+</body>
+</html>
