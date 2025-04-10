@@ -3,6 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ title }}</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    h1 {
+        color: #333;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    li {
+        margin-bottom: 20px;
+        padding: 15px;
+        background: #f9f9f9;
+        border-radius: 5px;
+    }
+    small {
+        color: #666;
+        font-size: 0.9em;
+    }
+</style>
 </head>
 <body>
     <h1>{{ title }}</h1>
@@ -12,10 +40,10 @@
             {% for post in posts%}
             <li>
                 <h2>{{ post.title }}</h2>
-                <p>{{ post.content|trunchcatewords:30 }}</p>
+                <p>{{ post.content|truncatewords:30 }}</p>
                 <small>
                     Категория: {{ post.category.name }} |
-                    Дата: {{ post.created_at|date:"d.m.Y H:i"}}
+                    Дата: {{ post.date|date:"d.m.Y H:i"}}
                 </small>
             </li>
             {% endfor %}
