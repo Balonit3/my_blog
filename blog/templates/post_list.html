@@ -39,7 +39,11 @@
         <ul>
             {% for post in posts%}
             <li>
-                <h2>{{ post.title }}</h2>
+                <h2>
+                    <a href="{% url 'post_detail' post.pk %}">
+                    {{ post.title }}
+                    </a>
+                </h2>
                 <p>{{ post.content|truncatewords:30 }}</p>
                 <small>
                     Категория: {{ post.category.name }} |
@@ -51,5 +55,8 @@
     {% else %}
         <p>Пока нет ни одного поста.</p>
     {% endif %}
+
+
+
 </body>
 </html>

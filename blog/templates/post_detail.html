@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <style>
+        body { font-family: Arial, max-width: 800px; margin: 0 auto; padding: 20px; }
+        .post { background: #f9f9f9; padding: 20px; border-radius: 5px; }
+        .meta { color: #666; font-size: 0.9em; margin-bottom: 20px; }
+        a { color: #06c; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <a href="{% url 'post_list' %}"> На главную</a>
+
+    <div class="post">
+        <h1>{{ posts.title }}</h1>
+        <div class="meta">
+            Категория:{{ posts.category.name }} |
+            Дата: {{ posts.date|date:"d.m.Y H:i" }}
+        </div>
+        <p>{{ posts.content|linebreaks }}</p>
+    </div>
+</body>
+</html>
