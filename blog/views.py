@@ -22,7 +22,7 @@ def post_detail(request,pk):
     return render(request,'post_detail.html',context)
 
 def create_post(request):
-    if request.metod == 'POST':
+    if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save()
@@ -34,7 +34,7 @@ def create_post(request):
 
 def edit_post(request,pk):
     post = get_object_or_404(Post,pk=pk)
-    if request.metod == 'POST':
+    if request.method == 'POST':
         form = PostForm(request.POST,instance=post)
         if form.is_valid():
             form.save()

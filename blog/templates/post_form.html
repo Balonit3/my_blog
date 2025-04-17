@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if form.instance.pk %}Редактировать пост{% else %}Новый пост{% endif %}</title>
+    <style>
+    .form-container { max-width: 600px; margin: 20px auto; padding: 20px; }
+    .form-field { margin-bottom: 15px; }
+    label { display: block; margin-bottom: 5px; }
+    input, textarea, select { width: 100%; padding: 8px; }
+    button { background: #4CAF50; color: white; padding: 10px 20px; border: none; }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>{% if form.instance.pk %}Редактировать пост{% else %}Новый пост{% endif %}</h1>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="form-field">
+                {{ form.title.label_tag }}
+                {{ form.title }}
+                {{ form.title.errors }}
+            </div>
+
+            <div class="form-field">
+                {{ form.content.label_tag }}
+                {{ form.content }}
+                {{ form.content.errors }}
+            </div>
+
+            <div class="form-field">
+                {{ form.category.label_tag }}
+                {{ form.category }}
+                {{ form.category.errors }}
+            </div>
+
+            <button type="submit">Сохранить </button>
+        </form>
+    </div>
+</body>
+</html>

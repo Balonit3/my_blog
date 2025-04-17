@@ -12,6 +12,7 @@
 </head>
 <body>
     <a href="{% url 'post_list' %}"> На главную</a>
+    <a href="{% url 'edit_post' post.pk %}" style="color: #4CAF50;">Редактировать</a>
 
     <div class="post">
         <h1>{{ posts.title }}</h1>

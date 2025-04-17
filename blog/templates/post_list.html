@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>{{ title }}</title>
+    <a href="{% url 'create_post' %}" style="display: block; margin: 20px 0;">Создать новый пост</a>
     <style>
     body {
         font-family: Arial, sans-serif;
@@ -42,7 +43,9 @@
                 <h2>
                     <a href="{% url 'post_detail' post.pk %}">
                     {{ post.title }}
+
                     </a>
+
                 </h2>
                 <p>{{ post.content|truncatewords:30 }}</p>
                 <small>
