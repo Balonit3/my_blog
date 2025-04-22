@@ -12,8 +12,8 @@
 </head>
 <body>
     <a href="{% url 'post_list' %}"> На главную</a>
-    <a href="{% url 'edit_post' post.pk %}" style="color: #4CAF50;">Редактировать</a>
-
+    <a href="{% url 'edit_post' posts.pk %}" style="color: #4CAF50;">Редактировать</a>
+    <a href="{% url 'delete_post' posts.pk %}" onclick="return confirm('Удалить пост?')">🗑️ Удалить</a>
     <div class="post">
         <h1>{{ posts.title }}</h1>
         <div class="meta">

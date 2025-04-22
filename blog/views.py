@@ -44,5 +44,10 @@ def edit_post(request,pk):
     return render(request,'post_form.html',{'form':form})
 
 
+def delete_post(request,pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.delete()
+    return redirect('post_list')
+
 
 
