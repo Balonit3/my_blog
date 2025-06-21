@@ -34,6 +34,15 @@
 </style>
 </head>
 <body>
+    <div style="text-align: right; padding: 10px; background: #f0f0f0;">
+    {% if user.is_authenticated %}
+        Привет, {{ user.username }}!
+        <a href="{% url 'logout' %}">Выйти</a>
+    {% else %}
+        <a href="{% url 'login' %}">Войти</a> |
+        <a href="{% url 'signup' %}">Регистрация</a>
+    {% endif %}
+    </div>
     <h1>{{ title }}</h1>
 
     {% if posts  %}
